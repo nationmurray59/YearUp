@@ -1,10 +1,10 @@
 
-public class SchoolTeacher implements ITaxPayer
+public class Scientist implements ITaxPayer
 {
 	private double m_income = -1;
 	private boolean m_donePayingTaxes = false;
 	
-	SchoolTeacher(double income)
+	Scientist(double income)
 	{
 		SetIncome(income);
 	}
@@ -24,8 +24,9 @@ public class SchoolTeacher implements ITaxPayer
 		if (m_donePayingTaxes == false)
 		{
 			double taxAmount = GetIncome() * taxRate;
-			System.out.println("School Teacher is paying the following as tax: " + taxAmount);
-			SetIncome( GetIncome() - taxAmount);
+			double discountedTaxAmount =  taxAmount - taxAmount * .1;
+			System.out.println("Scientist is paying the following as tax: " + taxAmount);
+			SetIncome( GetIncome() - discountedTaxAmount);
 			System.out.println("My income after taxes is: " + GetIncome());
 			m_donePayingTaxes = true;
 		}
@@ -36,7 +37,7 @@ public class SchoolTeacher implements ITaxPayer
 	{
 		if (m_donePayingTaxes)
 		{
-			System.out.println("School Teacher is filing their tax return.");
+			System.out.println("Scientist is filing their tax return");
 		}
 	}
 }
